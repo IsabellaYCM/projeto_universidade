@@ -3,7 +3,7 @@ id serial primary key,
 matricula_aluno int unique,
 nome varchar(100),
 sobrenome varchar(100),
-email varchar(100),
+email varchar(100) unique,
 mensalidade money
 );
 
@@ -32,13 +32,19 @@ constraint FK_turma foreign key(id_turma) references turma(id)
 
 create table unidade (
 id serial primary key,
-codigo_unidade int,
+codigo_unidade int unique,
 nome varchar(100)
 );
 
 create table contratado (
 id serial primary key,
 data_inicio date,
+nome varchar(100),
+sobrenome varchar(100),
+email varchar(100) unique,
+salario money,
+formacao varchar(150),
+cargo varchar(100),
 id_unidade int,
 constraint FK_unidade foreign key(id_unidade) references unidade(id)
 );
@@ -54,11 +60,6 @@ constraint FK_contratado foreign key(id_contratado) references contratado(id)
 create table funcionario (
 id serial primary key,
 matricula_funcionario int unique,
-nome varchar(100),
-sobrenome varchar(100),
-email varchar(100) unique,
-salario money,
-cargo varchar(100),
 id_contratado int,
 constraint FK_contratado foreign key(id_contratado) references contratado(id)
 );
@@ -66,11 +67,6 @@ constraint FK_contratado foreign key(id_contratado) references contratado(id)
 create table professor (
 id serial primary key,
 matricula_professor int unique,
-nome varchar(100),
-sobrenome varchar(100),
-email varchar(100) unique,
-salario money,
-formacao varchar(150),
 id_contratado int,
 constraint FK_contratado foreign key(id_contratado) references contratado(id)
 );
