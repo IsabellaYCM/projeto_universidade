@@ -141,7 +141,6 @@ insert into dependente (nome, sobrenome, id_contratado)  values
 ('Luana', 'Lima', 9),
 ('Caroline', 'Lima', 9);
 
-
 insert into funcionario (matricula_funcionario, id_contratado) values
 (7600, 5),
 (7601, 6),

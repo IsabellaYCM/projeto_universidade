@@ -7,7 +7,6 @@ email varchar(100) unique,
 mensalidade money
 );
 
-
 create table disciplina (
 id serial primary key,
 nome varchar(100)
